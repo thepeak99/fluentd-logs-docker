@@ -1,0 +1,13 @@
+{% for container in containers %}
+<source>
+  type tail
+  path /var/lib/docker/containers/{{ container['ID'] }}/{{ container['ID'] }}-json.log
+  pos_file /var/log/td-agent/container-log-{{ container['ID'] }}.pos
+  time_format %Y-%m-%dT%H:%M:%S 
+  tag container.{{ container['Name'][1:] }}
+  format json
+</source>
+
+{% endfor %}
+
+@include fluentd.local.conf
