@@ -8,7 +8,7 @@ import time
 import subprocess
 from jinja2 import FileSystemLoader, Environment
 
-FLUENTD_CONF = '/etc/td-agent/td-agent.conf'
+FLUENTD_CONF = '/etc/td-agent/conf.d/000_docker.conf'
 
 def get_container_config(containers):
     config_files = glob.glob('/var/lib/docker/containers/*/config.v2.json')
