@@ -1,10 +1,10 @@
 {% for container in containers %}
 <source>
   type tail
-  path /var/lib/docker/containers/{{ container['ID'] }}/{{ container['ID'] }}-json.log
-  pos_file /var/log/td-agent/container-log-{{ container['ID'] }}.pos
+  path /var/lib/docker/containers/{{ container['id'] }}/{{ container['id'] }}-json.log
+  pos_file /var/log/td-agent/container-log-{{ container['id'] }}.pos
   time_format %Y-%m-%dT%H:%M:%S 
-  tag container.{{ container['Name'][1:] }}
+  tag container.{{ container['name'] }}
   format json
 </source>
 
