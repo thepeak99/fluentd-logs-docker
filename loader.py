@@ -86,6 +86,8 @@ def main():
 
         time.sleep(1)
 
+    print "All set!"
+
     gen_fluentd_conf(config)
     start_fluentd()
 
